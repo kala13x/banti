@@ -1,4 +1,4 @@
-bAnti - Linux Kernel Based Root ToolKit
+bAnti - Kernel Based Root ToolKit
 ----
 
 ##### To Be, Or Not To Be
