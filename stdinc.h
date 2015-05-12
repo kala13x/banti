@@ -18,6 +18,8 @@ Desc:   Standart includes for banti
 #include <linux/string.h>
 #include <linux/slab.h>
 #include <linux/sched.h>
+#include <linux/cred.h>
+#include <linux/fs.h>
 
 /* Driver info */
 #define DRIVER_LICENSE "GPL"
