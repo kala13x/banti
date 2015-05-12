@@ -23,10 +23,3 @@ Desc:   Standart includes for banti
 #include <assert.h>
 #include <ctype.h>
 #include <math.h>
-
-/* Linux includes */
-#include <linux/init.h>
-#include <linux/module.h>
-#include <linux/kernel.h>
-#include <linux/keyboard.h>
-#include <linux/semaphore.h>

