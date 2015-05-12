@@ -1,4 +1,4 @@
-bAnti - Just Another Security ToolKit 
+bAnti - Linux Kernel Based PoC RootKit
 ----
 
 #### To Be, Or Not To Be
