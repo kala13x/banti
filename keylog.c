@@ -1,5 +1,5 @@
 /*----------------------------------------------------
-Name:   stdinc.h
+Name:   keylog.c
 Date:   2015.05.12
 Auth:   Sun Dro (a.k.a. 7th Ghost / kala13x)
 Desc:   Kernel Based KeyLogger Module
@@ -7,14 +7,7 @@ Desc:   Kernel Based KeyLogger Module
 
 
 /* Linux includes */
-#include <linux/init.h>
-#include <linux/module.h>
-#include <linux/kernel.h>
-#include <linux/keyboard.h>
-#include <linux/semaphore.h>
-
-/* Driver info */
-#define DRIVER_LICENSE "GPL"
+#include "stdinc.h"
 
 
 /*---------------------------------------------
