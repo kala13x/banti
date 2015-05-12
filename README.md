@@ -7,5 +7,5 @@ Coming Soon ..
 #### Development Process
 - [ ] Remote Server (in process) [See Here](https://github.com/nikopeikrishvili/proto-banti)
 - [x] Client Commander [See Here](https://github.com/nikopeikrishvili/proto-banti)
-- [x] Kernel  based keylogger module
-- [ ] Main rootkit module (in progress)
+- [x] Kernel  Based Keylogger Module
+- [ ] Main Rootkit Module (in progress)
