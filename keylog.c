@@ -8,6 +8,9 @@ Desc:   Kernel Based KeyLogger Module
 
 #include "stdinc.h"
 
+/* Driver info */
+#define DRIVER_LICENSE "GPL"
+
 
 /*---------------------------------------------
 | Handle key signal and return in char value
