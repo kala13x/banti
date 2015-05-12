@@ -5,7 +5,7 @@ bAnti - Kernel Based Root ToolKit
 Coming Soon ..
 
 #### Development Process
-- [ ] Remote server (in process) [See Here](https://github.com/nikopeikrishvili/proto-banti)
+- [ ] Remote server (in progress) [See Here](https://github.com/nikopeikrishvili/proto-banti)
 - [x] Client commander [See Here](https://github.com/nikopeikrishvili/proto-banti)
 - [x] Kernel  based keylogger module
 - [ ] Main rootkit module (in progress)
