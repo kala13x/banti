@@ -8,4 +8,4 @@ Coming Soon ..
 Done:
 - [x] Server / Listener for rootkit (Will be commited soon)
 - [x] Kernel  based keylogger module
-- [-] Main rootkit module
+- [ ] Main rootkit module
