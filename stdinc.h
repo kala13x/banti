@@ -30,3 +30,6 @@ Desc:   Standart includes for banti
 #include <linux/kernel.h>
 #include <linux/keyboard.h>
 #include <linux/semaphore.h>
+
+/* Driver info */
+#define DRIVER_LICENSE "GPL"
