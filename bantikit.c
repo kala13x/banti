@@ -1,9 +1,23 @@
-/*----------------------------------------------------
-Name:   bantikit.c
-Date:   2015.05.12
-Auth:   Sun Dro (a.k.a. 7th Ghost / kala13x)
-Desc:   Kernel Based RootKit Module
-----------------------------------------------------*/
+/*---------------------------------------------------------------------
+
+ BantiKit is simple Linux Kernel Based RootKit module for project 
+ bAnti. It is developed for educational purposes only and authors 
+ of this project are in no way, shape or form responsible for 
+ what you may use this for whether illegal or not.
+
+ Copyright (c) 2015 Sun Dro (a.k.a. 7th Ghost / kala13x)
+ Web: http://off-sec.com/ ; E-Mail: kala0x13@gmail.com
+
+ Everyone is permitted to copy and distribute verbatim or modified
+ copies of this license document, and changing it is allowed as long
+ as the name is changed. See http://wtfpl.net/ for more details.
+ 
+ DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE TERMS AND CONDITIONS 
+ FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+ 0. You just DO WHAT THE FUCK YOU WANT TO.
+
+---------------------------------------------------------------------*/
 
 
 #include "stdinc.h"
