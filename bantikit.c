@@ -4,7 +4,7 @@
  *   of this project are in no way, shape or form responsible for 
  *   what you may use this for whether illegal or not.
  *
- *   Copyright (c) 2015 Sun Dro (a.k.a. 7th Ghost / kala13x)
+ *   Copyleft (c) 2015 Sun Dro (a.k.a. 7th Ghost / kala13x)
  *   Web: http://off-sec.com/ ; E-Mail: kala0x13@gmail.com
  *
  * Everyone is permitted to copy and distribute verbatim or modified
