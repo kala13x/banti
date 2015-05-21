@@ -31,3 +31,5 @@ You can see development process below.
 - [x] Main rootkit module 'bantikit'
 - [ ] Backdor module
 - [ ] Many fucking things
+
+![alt tag](http://off-sec.com/ftp/bow.png)
