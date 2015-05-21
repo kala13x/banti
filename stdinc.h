@@ -1,9 +1,9 @@
-/*----------------------------------------------------
-Name:   stdinc.h
-Date:   2015.05.12
-Auth:   Sun Dro (a.k.a. 7th Ghost / kala13x)
-Desc:   Standart includes for banti
-----------------------------------------------------*/
+/*
+ *  stdinc.h
+ *  Copyright (C) 2015.05.12  Sun Dro (a.k.a. kala13x)
+ *
+ *  Standart includes and definations for banti project
+ */
 
 /* Linux includes */
 #include <linux/init.h>

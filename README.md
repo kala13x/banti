@@ -8,6 +8,6 @@ Coming Soon ..
 - [ ] Remote server (in progress) [See Here](https://github.com/nikopeikrishvili/proto-banti)
 - [x] Client commander [See Here](https://github.com/nikopeikrishvili/proto-banti)
 - [x] Kernel based keylogger module
-- [ ] Main rootkit module 'bantikit' (allmost done)
+- [x] Main rootkit module 'bantikit'
 - [ ] Backdor module
 - [ ] Many fucking things
