@@ -13,8 +13,8 @@ make clean
 ```
 Afther insert, module hides itself from module list by default, so it can not be detected with 'lsmod' command.
 
+#### Remove
 If those modules is no longer requires for you, you can just unload from modules
-
 ```
 rmmod keylog
 rmmod bantikit
@@ -25,7 +25,7 @@ We are currently at development process, usage information will be available soo
 You can see development process below.
 
 #### Development Process
-- [ ] Remote server (in progress) [See Here](https://github.com/nikopeikrishvili/proto-banti)
+- [x] Remote server [See Here](https://github.com/nikopeikrishvili/proto-banti)
 - [x] Client commander [See Here](https://github.com/nikopeikrishvili/proto-banti)
 - [x] Kernel based keylogger module
 - [x] Main rootkit module 'bantikit'
