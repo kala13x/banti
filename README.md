@@ -25,7 +25,7 @@ We are currently at development process, usage information will be available soo
 You can see development process below.
 
 #### Development Process
-- [x] Remote server [See Here](https://github.com/nikopeikrishvili/proto-banti)
+- [x] Remote listener [See Here](https://github.com/nikopeikrishvili/proto-banti)
 - [x] Client commander [See Here](https://github.com/nikopeikrishvili/proto-banti)
 - [x] Kernel based keylogger module
 - [x] Main rootkit module 'bantikit'
