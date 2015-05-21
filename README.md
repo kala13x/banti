@@ -1,6 +1,6 @@
 bAnti - Kernel Based Root ToolKit
 ----
-banti is is sample kernel based root toolkit for Linux. It contains keylogger and rootkit modules for linux kernel. With those modules, you are able to log keyboard info, hide processes and get root privileges for each process.
+banti is is sample kernel based root toolkit for Linux. It contains keylogger and rootkit modules for linux kernel. With those modules, you are able to log keyboard info, hide processes and get root privileges for each process. It is developed for educational purposes only and authors of this project are in no way, shape or form responsible for what you may use this for whether illegal or not.
 
 #### Compilation
 Compilation and installation of this modules, are possible with makefile
