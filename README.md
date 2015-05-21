@@ -32,4 +32,4 @@ You can see development process below.
 - [ ] Backdor module
 - [ ] Many fucking things
 
->>>>>![alt tag](http://off-sec.com/ftp/bow.png)<-
+<img align="center" src="http://off-sec.com/ftp/bow.png"></img>
